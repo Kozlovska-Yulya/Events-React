@@ -9,15 +9,15 @@ class Toggler extends React.Component {
     };
   }
 
-  setStatus() {
-    this.setState({
-      status: 'On',
-    });
+  toggleStatus() {
+    this.setState((prevState) => ({
+      status: prevState.status === 'On' ? 'Off' : 'On',
+    }));
   }
 
   render() {
     return (
-      <div className="toggler" onClick={this.setStatus.bind(this)}>
+      <div className="toggler" onClick={this.toggleStatus.bind(this)}>
         {this.state.status}
       </div>
     );
