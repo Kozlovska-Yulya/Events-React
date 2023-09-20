@@ -12,42 +12,43 @@ class ColorPicker extends React.Component {
     };
   }
 
+  // Обработчик события для наведения курсора на кнопку Coral
   handleMouseOver = (color) => {
     this.setState({ selectedColor: color });
   };
 
+  // Обработчик события для снятия курсора с кнопки
   handleMouseOut = () => {
     this.setState({ selectedColor: '' });
   };
 
   render() {
     const { selectedColor } = this.state;
+
     return (
-      <div>
-        <div className="picker__title">{this.selectedColor}</div>
-        <div className="colorNameContainer">
-          {selectedColor && <span className="colorName">{selectedColor}</span>}
-        </div>
-        <div>
-          <button
-            style={{ backgroundColor: Coral }}
-            onMouseOver={() => this.handleMouseOver('Coral')}
-            onMouseOut={this.handleMouseOut}
-            className="picker__button picker__button_coral"
-          ></button>
-          <button
-            style={{ backgroundColor: Aqua }}
-            onMouseOver={() => this.handleMouseOver('Aqua')}
-            onMouseOut={this.handleMouseOut}
-            className="picker__button picker__button_aqua"
-          ></button>
-          <button
-            style={{ backgroundColor: Bisque }}
-            onMouseOver={() => this.handleMouseOver('Bisque')}
-            onMouseOut={this.handleMouseOut}
-            className="picker__button picker__button_bisque"
-          ></button>
-        </div>
+      <div className="picker">
+        <div className="picker__title">{selectedColor}</div>
+
+        <button
+          style={{ backgroundColor: Coral }}
+          className="picker__button picker__button_coral"
+          onMouseOver={() => this.handleMouseOver('Coral')}
+          onMouseOut={this.handleMouseOut}
+        ></button>
+
+        <button
+          style={{ backgroundColor: Aqua }}
+          className="picker__button picker__button_aqua"
+          onMouseOver={() => this.handleMouseOver('Aqua')}
+          onMouseOut={this.handleMouseOut}
+        ></button>
+
+        <button
+          style={{ backgroundColor: Bisque }}
+          className="picker__button picker__button_bisque"
+          onMouseOver={() => this.handleMouseOver('Bisque')}
+          onMouseOut={this.handleMouseOut}
+        ></button>
       </div>
     );
   }
